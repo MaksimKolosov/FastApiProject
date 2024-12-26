@@ -37,7 +37,7 @@ def shorten_url(item: URLCreate, db: Session = Depends(get_db)):
             db.add(new_item)
             db.commit()
             db.refresh(new_item)
-            return {"short_url": f"http://localhost:8000/{short_id}"}
+            return {"short_url": f"http://localhost:8001/{short_id}"}
     raise HTTPException(status_code=500, detail="Не удалось сгенерировать короткую ссылку")
 
 @app.get("/{short_id}")
